@@ -1,0 +1,41 @@
+﻿@model GeneralPage;
+
+<section class="ftco-section ftco-degree-bg">
+	<div class="container">
+		<div class="row">
+			<div class="col-lg-8 ftco-animate">
+	<div class="row">
+		<div class="col-md-12 d-flex ftco-animate">
+			<div class="blog-entry align-self-stretch d-md-flex">
+				<a href="blog-single.html" class="block-20" style="background-image: url('/static/images/image_6.jpg');">
+				</a>
+				<div class="text d-block pl-md-4">
+					<div class="meta mb-3">
+						<div><a href="#">July 20, 2019</a></div>
+						<div><a href="#">Admin</a></div>
+						<div><a href="#" class="meta-chat"><span class="icon-chat"></span> 3</a></div>
+					</div>
+					@Html.PropertyFor(x => x.PageTitle)
+					@Html.PropertyFor(x => x.Headline)
+					@Html.PropertyFor(x => x.Body)
+
+
+				</div>
+			</div>
+		</div>		
+	</div>
+</div> <!-- .col-md-8 -->
+ </div>
+	  </div>
+	</section> <!-- .section -->
+	<section class="ftco-section ftco-no-pt ftco-no-pb py-5 bg-light">
+	<div class="container py-4">
+		<div class="row d-flex justify-content-center py-5">
+			<div class="col-md-10">
+				
+				@Html.PropertyFor(x=>x.BottomContentArea)
+
+			</div>
+		</div>
+	</div>
+</section>
