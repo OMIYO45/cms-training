@@ -9,21 +9,25 @@ namespace SampleCMS.Business.Rendering
     public class TemplateCoordinator : IViewTemplateModelRegistrator
     {        
         public void Register(TemplateModelCollection viewTemplateModelRegistrator)
-        {
-            viewTemplateModelRegistrator.Add(typeof(SectionMediaBlock), new EPiServer.DataAbstraction.TemplateModel {
-                Name = "SectionMediaBlock-Default",
-                AvailableWithoutTag = true,
-                TemplateTypeCategory = EPiServer.Framework.Web.TemplateTypeCategories.MvcPartialView,
-                Path = "~/Views/SectionMediaBlock/Index.cshtml"
-            });
+        {            
+            RegisterBlock<SectionMediaBlock>(viewTemplateModelRegistrator);
+            RegisterBlock<LinkGridBlock>(viewTemplateModelRegistrator);
 
-            viewTemplateModelRegistrator.Add(typeof(LinkGridBlock), new EPiServer.DataAbstraction.TemplateModel
-            {
-                Name = "LinkGridBlock-Default",
-                AvailableWithoutTag = true,
-                TemplateTypeCategory = EPiServer.Framework.Web.TemplateTypeCategories.MvcPartialView,
-                Path = "~/Views/LinkGridBlock/Index.cshtml"
-            });
+            //Previous used
+            //viewTemplateModelRegistrator.Add(typeof(SectionMediaBlock), new EPiServer.DataAbstraction.TemplateModel {
+            //    Name = "SectionMediaBlock-Default",
+            //    AvailableWithoutTag = true,
+            //    TemplateTypeCategory = EPiServer.Framework.Web.TemplateTypeCategories.MvcPartialView,
+            //    Path = "~/Views/SectionMediaBlock/Index.cshtml"
+            //});
+
+            //viewTemplateModelRegistrator.Add(typeof(LinkGridBlock), new EPiServer.DataAbstraction.TemplateModel
+            //{
+            //    Name = "LinkGridBlock-Default",
+            //    AvailableWithoutTag = true,
+            //    TemplateTypeCategory = EPiServer.Framework.Web.TemplateTypeCategories.MvcPartialView,
+            //    Path = "~/Views/LinkGridBlock/Index.cshtml"
+            //});
 
             viewTemplateModelRegistrator.Add(typeof(AbstractContentPage), new EPiServer.DataAbstraction.TemplateModel
             {
@@ -35,5 +39,16 @@ namespace SampleCMS.Business.Rendering
                 Path = "~/Views/AbstractContentPage/LinkGrid.cshtml"
             });
         }
+
+        private void RegisterBlock<T>(TemplateModelCollection viewTemplateModelRegistrator) where T : BlockData
+        {
+            viewTemplateModelRegistrator.Add(typeof(T), new EPiServer.DataAbstraction.TemplateModel
+            {
+                Name = $"{typeof(T).Name}-Default",
+                AvailableWithoutTag = true,
+                TemplateTypeCategory = EPiServer.Framework.Web.TemplateTypeCategories.MvcPartialView,
+                Path = $"~/Views/Blocks/{typeof(T).Name}.cshtml"
+            });
+        }        
     }
 }

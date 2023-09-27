@@ -4,11 +4,11 @@ using SampleCMS.Models.Pages;
 
 namespace SampleCMS.Controllers.Pages
 {
-    public class HomePageController : PageController<HomePage>
+    public class HomePageController : BaseController<HomePage>
     {
         public IActionResult Index(HomePage currentContent)
         {
-            return View(currentContent);
+            return PageView(currentContent);
         }
     }
 }
