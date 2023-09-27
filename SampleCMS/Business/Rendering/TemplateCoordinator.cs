@@ -12,7 +12,9 @@ namespace SampleCMS.Business.Rendering
         {            
             RegisterBlock<SectionMediaBlock>(viewTemplateModelRegistrator);
             RegisterBlock<LinkGridBlock>(viewTemplateModelRegistrator);
-
+            RegisterPartial<AbstractContentPage>(viewTemplateModelRegistrator, "ArticlePartial");
+            RegisterPartial<AbstractContentPage>(viewTemplateModelRegistrator, "LinkGrid");
+            
             //Previous used
             //viewTemplateModelRegistrator.Add(typeof(SectionMediaBlock), new EPiServer.DataAbstraction.TemplateModel {
             //    Name = "SectionMediaBlock-Default",
@@ -37,6 +39,19 @@ namespace SampleCMS.Business.Rendering
                 Inherit= true,
                 TemplateTypeCategory = EPiServer.Framework.Web.TemplateTypeCategories.MvcPartialView,
                 Path = "~/Views/AbstractContentPage/LinkGrid.cshtml"
+            });
+        }
+
+        private void RegisterPartial<T>(TemplateModelCollection viewTemplateModelRegistrator, string tageName) where T : AbstractContentPage
+        {
+            viewTemplateModelRegistrator.Add(typeof(T), new EPiServer.DataAbstraction.TemplateModel
+            {
+                Name = $"{typeof(T).Name}-{tageName}",
+                AvailableWithoutTag = false,
+                Tags = new[] { tageName},
+                Inherit = true,
+                TemplateTypeCategory = EPiServer.Framework.Web.TemplateTypeCategories.MvcPartialView,
+                Path = $"~/Views/{(typeof(T).Name)}/{tageName}.cshtml"
             });
         }
 

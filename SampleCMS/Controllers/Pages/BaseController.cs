@@ -10,7 +10,11 @@ namespace SampleCMS.Controllers.Pages
         public IActionResult PageView( T model)
         {
             var viewModel = new PageViewModel<T>(model);
-            viewModel.PageTitle ??= String.IsNullOrEmpty(model.PageTitle) ? model.Name : model.PageTitle; 
+            return PageView(viewModel);
+        }
+        protected IActionResult PageView(PageViewModel<T> viewModel)
+        {
+            viewModel.PageTitle ??= String.IsNullOrEmpty(viewModel.PageTitle) ? viewModel.Page.Name : viewModel.Page.PageTitle;
             return View($"~/Views/Pages/{typeof(T).Name}.cshtml", viewModel);
         }
     }

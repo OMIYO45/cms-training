@@ -1,4 +1,4 @@
-﻿@model PageViewModel<HomePage>;
+﻿@model HomePageViewModel;
 <section class="ftco-section ftco-degree-bg">
     <div class="container">
         <div class="row">
@@ -9,6 +9,18 @@
                 <div class="desc align-self-md-center">
                     <h3>Lance Smith</h3>
                     <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Ducimus itaque, autem necessitatibus voluptate quod mollitia delectus aut, sunt placeat nam vero culpa sapiente consectetur similique, inventore eos fugit cupiditate numquam!</p>
+                </div>
+            </div>
+        </div>
+        <div class="row">
+            <div class="about-author d-flex p-4 bg-light">
+                <div class="desc align-self-md-center">
+                  @foreach(var page in Model.RelatedContent)
+                    {
+                        <p>This is dummy text
+                        @{ Html.RenderContentData(page, false, "ArticlePartial"); }
+                        </p>
+                    }
                 </div>
             </div>
         </div>
