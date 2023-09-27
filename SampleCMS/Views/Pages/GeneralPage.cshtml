@@ -1,4 +1,4 @@
-﻿@model GeneralPage;
+﻿@model PageViewModel<GeneralPage>;
 
 <section class="ftco-section ftco-degree-bg">
 	<div class="container">
@@ -15,9 +15,9 @@
 						<div><a href="#">Admin</a></div>
 						<div><a href="#" class="meta-chat"><span class="icon-chat"></span> 3</a></div>
 					</div>
-					@Html.PropertyFor(x => x.PageTitle)
-					@Html.PropertyFor(x => x.Headline)
-					@Html.PropertyFor(x => x.Body)
+					@Html.PropertyFor(x => x.Page.PageTitle)
+					@Html.PropertyFor(x => x.Page.Headline)
+					@Html.PropertyFor(x => x.Page.Body)
 
 
 				</div>
@@ -33,7 +33,7 @@
 		<div class="row d-flex justify-content-center py-5">
 			<div class="col-md-10">
 				
-				@Html.PropertyFor(x=>x.BottomContentArea)
+				@Html.PropertyFor(x=>x.Page.BottomContentArea)
 
 			</div>
 		</div>
