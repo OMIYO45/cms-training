@@ -32,23 +32,11 @@
 
 <h2>BottomContentArea</h2>
 
-<section class="ftco-section ftco-degree-bg">
+<section id="main">
     <div class="container">
         <div class="row">
-            <div class="col-lg-8 ftco-animate">
-                <div class="row">
-                    <div class="col-md-12 d-flex ftco-animate">
-                        <div class="blog-entry align-self-stretch d-md-flex">
-                            <div class="text d-block pl-md-4">
-                                <div class="col-md-10">
-                                    @Html.PropertyFor(x=>x.Page.BottomContentArea)
-                                </div>
-
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div> <!-- .col-md-8 -->
+            @Html.PropertyFor(x=>x.Page.BottomContentArea)
+            
         </div>
     </div>
-</section>
+    </section>

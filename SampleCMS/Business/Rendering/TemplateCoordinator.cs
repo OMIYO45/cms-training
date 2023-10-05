@@ -12,9 +12,11 @@ namespace SampleCMS.Business.Rendering
         {            
             RegisterBlock<SectionMediaBlock>(viewTemplateModelRegistrator);
             RegisterBlock<LinkGridBlock>(viewTemplateModelRegistrator);
+            RegisterBlock<BannerBlock>(viewTemplateModelRegistrator);
             RegisterPartial<AbstractContentPage>(viewTemplateModelRegistrator, "ArticlePartial");
             RegisterPartial<AbstractContentPage>(viewTemplateModelRegistrator, "LinkGrid");
             
+
             //Previous used
             //viewTemplateModelRegistrator.Add(typeof(SectionMediaBlock), new EPiServer.DataAbstraction.TemplateModel {
             //    Name = "SectionMediaBlock-Default",

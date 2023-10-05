@@ -32,7 +32,7 @@ namespace SampleCMS.Models.Pages
             Name = "Bottom Content Area",
             GroupName = SystemTabNames.Content,
             Order = 40)]
-        [AllowedTypes(AllowedTypes = new[] { typeof(SectionMediaBlock), typeof(LinkGridBlock) })]
+        [AllowedTypes(AllowedTypes = new[] { typeof(SectionMediaBlock), typeof(LinkGridBlock), typeof(BannerBlock) })]
         public virtual ContentArea? BottomContentArea { get; set; }
     }
 }
