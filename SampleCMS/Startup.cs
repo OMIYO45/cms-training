@@ -3,6 +3,10 @@ using EPiServer.Cms.UI.AspNetIdentity;
 using EPiServer.Scheduler;
 using EPiServer.ServiceLocation;
 using EPiServer.Web.Routing;
+using SampleCMS.Business.Interfaces;
+using SampleCMS.Business.Services;
+using SampleCMS.Models.Pages;
+using SampleCMS.Models.Pages.ViewModels;
 
 namespace SampleCMS;
 
@@ -22,6 +26,7 @@ public class Startup
             AppDomain.CurrentDomain.SetData("DataDirectory", Path.Combine(_webHostingEnvironment.ContentRootPath, "App_Data"));
 
             services.Configure<SchedulerOptions>(options => options.Enabled = false);
+            services.AddTransient<IContactUsPageBuilder, ContactUsPageBuilder>();
         }
 
         services
