@@ -13,6 +13,7 @@ namespace SampleCMS.Business.Rendering
             RegisterBlock<SectionMediaBlock>(viewTemplateModelRegistrator);
             RegisterBlock<LinkGridBlock>(viewTemplateModelRegistrator);
             RegisterBlock<BannerBlock>(viewTemplateModelRegistrator);
+            RegisterBlock<ButtonActionBlock>(viewTemplateModelRegistrator);
             RegisterPartial<AbstractContentPage>(viewTemplateModelRegistrator, "ArticlePartial");
             RegisterPartial<AbstractContentPage>(viewTemplateModelRegistrator, "LinkGrid");
             

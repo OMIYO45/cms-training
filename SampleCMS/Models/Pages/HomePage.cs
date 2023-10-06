@@ -1,5 +1,8 @@
 ﻿using EPiServer.Core;
 using EPiServer.DataAnnotations;
+using SampleCMS.Models.Blocks;
+using System.ComponentModel.DataAnnotations;
+
 namespace SampleCMS.Models.Pages
 {
     [ContentType(
@@ -9,6 +12,11 @@ namespace SampleCMS.Models.Pages
         )]
     public class HomePage : AbstractContentPage
     {
-
+        [Display(
+          Name = "Bottom Content Area",
+          GroupName = SystemTabNames.Content,
+          Order = 10)]
+        [AllowedTypes(AllowedTypes = new[] { typeof(ButtonActionBlock) })]
+        public virtual ContentArea? BottomContentArea { get; set; }
     }
 }
