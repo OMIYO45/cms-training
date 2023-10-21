@@ -1,4 +1,5 @@
 ﻿@using EPiServer.Shell.Web.Mvc.Html;
+@using SampleCMS.Business.Models;
 
 @model ContactUsPageViewModel
 <h3>Contact Us Page</h3>
@@ -32,3 +33,13 @@
         </div>
     </div>
 </section>
+<section class="ftco-section contact-section bg-light">
+    <div class="container">
+        @if (TempData["cmtList"] != null)
+        {
+            foreach (var l in (IEnumerable<SubmitContactUs>)TempData["cmtList"])
+            {
+                <p> Name : <b>@l.FullName</b> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp; Comment : @l.Comment</p>
+            }
+        }
+    </div></section>
